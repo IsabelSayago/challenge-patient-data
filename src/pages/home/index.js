@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from '../../assets/images/logo.svg';
+import { useReducer } from 'react';
 import './index.css';
+import Search from '../containers/search';
+import Results from '../containers/results';
+import { PatientsContext, initialState, reducer } from '../../reducer';
 
-function App() {
+function Home() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { loading } = state;
+
+  console.log('loading', loading);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PatientsContext.Provider value={{ state, dispatch }}>
+      <div className="home">
+        <Search />
+        {loading === false &&
+          <Results />
+        }
+      </div>
+    </PatientsContext.Provider>
   );
 }
 
-export default App;
+export default Home;
