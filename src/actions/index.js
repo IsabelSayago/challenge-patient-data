@@ -5,3 +5,7 @@ export const setLoading = ({ dispatch, payload }) => {
 export const setPatientsData = ({ dispatch, payload }) => {
     dispatch({ type: 'SET_PATIENTS_DATA', payload })
 };
+
+export const setModalData = ({ dispatch, payload }) => {
+    dispatch({ type: 'SET_MODAL_DATA', payload })
+};
