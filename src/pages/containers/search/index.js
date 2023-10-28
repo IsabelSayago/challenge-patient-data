@@ -15,8 +15,6 @@ import { PatientsService } from "../../../services";
 const Search = () => {
     const { dispatch } = useContext(PatientsContext);
 
-    console.log('prueba');
-
     const onClickSearchButton = async () => {
         const response = await PatientsService.getAllPatients();
         setPatientsData({ dispatch, payload: response })
@@ -32,7 +30,7 @@ const Search = () => {
 
     return (
         <div className="search">
-            <TextField id="standard-basic" label="Standard" variant="standard" onKeyDown={onKeyDownSearch} />
+            <TextField fullWidth id="standard-basic" label="Standard" variant="standard" onKeyDown={onKeyDownSearch} />
             <Button variant="text" onClick={onClickSearchButton}>Search</Button>
 
             {/* <Button  /> */}
