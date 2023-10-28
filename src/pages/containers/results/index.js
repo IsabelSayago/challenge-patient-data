@@ -7,13 +7,13 @@ import CustomModal from "../../../components/modal";
 
 const Results = () => {
     const { state } = useContext(PatientsContext);
-    const { patientsData } = state;
+    const { patientsData, modalData } = state;
 
     console.log('patientsData', patientsData);
 
     return (
     <div className="results">
-        <CustomModal />
+        {modalData && <CustomModal />}
         {patientsData.map((item) => (<InfoCard key={item.id} data={item} />) )}
     </div>
     );
