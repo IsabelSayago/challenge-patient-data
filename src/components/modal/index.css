@@ -1,0 +1,23 @@
+.modal {
+    .MuiDialog-paper {
+        width: 400px;
+
+    }
+}
+
+.container-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.textfield {
+    width: 100%;
+}
+
+.icon-edit {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
