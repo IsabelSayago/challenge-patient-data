@@ -1,8 +1,12 @@
 import React from "react";
 import { useContext } from "react";
-import TextField from "../../../components/textfield";
+// import TextField from "../../../components/textfield";
+import TextField from '@mui/material/TextField';
+
 import './index.css';
-import Button from "../../../components/button";
+// import Button from "../../../components/button";
+import Button from '@mui/material/Button';
+
 import { PatientsContext } from "../../../reducer";
 import { setLoading, setPatientsData } from "../../../actions";
 // import { useEffect, useState } from "react";
@@ -20,11 +24,19 @@ const Search = () => {
         console.log('response in component', response);
     };
 
+    const onKeyDownSearch = (e) => {
+        if (e.key === 'Enter') {
+            onClickSearchButton();
+        }
+    };
+
     return (
-    <div className="search">
-        <TextField />
-        <Button onClick={onClickSearchButton} />
-    </div>
+        <div className="search">
+            <TextField id="standard-basic" label="Standard" variant="standard" onKeyDown={onKeyDownSearch} />
+            <Button variant="text" onClick={onClickSearchButton}>Search</Button>
+
+            {/* <Button  /> */}
+        </div>
     );
 };
 
