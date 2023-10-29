@@ -7,6 +7,15 @@
   text-align: center;
 }
 
+.actions-container {
+  display: flex;
+  margin: 40px 20px 100px 20px;
+}
+
+button.button-add {
+  border-radius: 100px;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
