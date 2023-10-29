@@ -11,40 +11,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 import { PatientsContext } from "../../reducer";
-import { setModalData } from "../../actions";
-
-// import Button from '@mui/material/Button';
-
-
-// const InfoCard = ({ data }) => {
-//   const { avatar, description, name, website } = data;
-//   console.log(description);
-//     /* const [inputValue, setInputValue] = useState('');
-
-//     const onChangeInputHandler = (e) => {
-//       setInputValue(e.target.value);
-//     }; */
-
-//     return (
-//         <div className="card-container">
-//           <div className="card">
-//             <img
-//               src={avatar}
-//               alt="Card Image"
-//               className="card-image"
-//             />
-//             <div className="card-content">
-//               <h2 className="card-title">{name}</h2>
-//               {/* <p className="card-text">{description}</p> */}
-//               <p className="card-text">{website}</p>
-//               <Button variant="text">Text</Button>
-
-
-//             </div>
-//           </div>
-//         </div>
-//       );
-// };
+import { setModalData, setUpdateActionState } from "../../actions";
 
 const InfoCard = ({ data }) => {
   const { avatar, description, name, website } = data;
@@ -53,9 +20,8 @@ const InfoCard = ({ data }) => {
   const [expanded, setExpanded] = useState(false);
   const cardRef = useRef(null);
 
-  console.log(description);
-
   const onClickCard = () => {
+    setUpdateActionState({ dispatch, payload: null })
     setExpanded(value => !value);
 
     if (!expanded) {
