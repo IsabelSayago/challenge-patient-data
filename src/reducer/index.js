@@ -7,6 +7,7 @@ export const initialState = {
     patientsData: null,
     modalData: null,
     updateState: null,
+    openNewPatientModal: false,
 };
 
 export const reducer = (state, { type, payload }) => {
@@ -20,6 +21,8 @@ export const reducer = (state, { type, payload }) => {
             return { ...state, modalData: payload };
         case 'SET_UPDATE_STATE':
             return { ...state, updateState: payload };
+        case 'SET_NEW_PATIENT_MODAL':
+            return { ...state, openNewPatientModal: payload };
         default:
             break;
     }
