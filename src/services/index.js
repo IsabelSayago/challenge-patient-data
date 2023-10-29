@@ -10,11 +10,11 @@ export class PatientsService {
 
             console.log('response', response);
             if (!response) {
-
+                throw new Error('Error while retrieving');
             }
             return response.json();
         } catch (error) {
-
+            return null;
         }
 
     };

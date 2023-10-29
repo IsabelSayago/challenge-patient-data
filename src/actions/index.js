@@ -10,7 +10,10 @@ export const setModalData = ({ dispatch, payload }) => {
     dispatch({ type: 'SET_MODAL_DATA', payload })
 };
 
-
 export const setUpdateActionState = ({ dispatch, payload }) => {
     dispatch({ type: 'SET_UPDATE_STATE', payload })
+};
+
+export const setNewPatientModal = ({ dispatch, payload }) => {
+    dispatch({ type: 'SET_NEW_PATIENT_MODAL', payload })
 };

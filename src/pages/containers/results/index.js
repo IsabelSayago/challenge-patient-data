@@ -3,9 +3,9 @@ import { useContext, useState, useEffect } from "react";
 import './index.css';
 import InfoCard from "../../../components/info-card";
 import { PatientsContext } from "../../../reducer";
-import CustomModal from "../../../components/modal";
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
+import EditPatientModal from "../../../components/edit-patient";
 
 const Results = () => {
     const { state } = useContext(PatientsContext);
@@ -24,7 +24,8 @@ const Results = () => {
 
     return (
         <div className="results">
-            {modalData && <CustomModal />}
+            {modalData && <EditPatientModal />}
+            {/* If no patient data is retrieved, show a message! */}
             {patientsData.map((item) => (<InfoCard key={item.id} data={item} />))}
             <Snackbar open={open} autoHideDuration={6000} onClose={onCloseHandler}>
                 <Alert
