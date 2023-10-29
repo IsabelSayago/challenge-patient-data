@@ -1,15 +1,12 @@
 import React from "react";
 import { useContext } from "react";
-// import TextField from "../../../components/textfield";
 import TextField from '@mui/material/TextField';
 
 import './index.css';
-// import Button from "../../../components/button";
-import Button from '@mui/material/Button';
+import SearchIcon from "@mui/icons-material/Search";
 
 import { PatientsContext } from "../../../reducer";
 import { setLoading, setPatientsData } from "../../../actions";
-// import { useEffect, useState } from "react";
 import { PatientsService } from "../../../services";
 
 const Search = () => {
@@ -30,10 +27,10 @@ const Search = () => {
 
     return (
         <div className="search">
-            <TextField fullWidth id="standard-basic" label="Standard" variant="standard" onKeyDown={onKeyDownSearch} />
-            <Button variant="text" onClick={onClickSearchButton}>Search</Button>
-
-            {/* <Button  /> */}
+            <TextField className="search-textfield" fullWidth id="standard-basic" label="Search by name or email..." variant="standard" onKeyDown={onKeyDownSearch} />
+            <button className="search-button" onClick={onClickSearchButton}>
+                <SearchIcon />
+            </button>
         </div>
     );
 };
