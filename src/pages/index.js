@@ -1,8 +1,8 @@
 import React from 'react';
 import { useReducer } from 'react';
 import './index.css';
-import Search from './containers/search';
-import Results from './containers/results';
+import Search from '../components/search';
+import Results from '../components/results';
 import { PatientsContext, initialState, reducer } from '../reducer';
 import Button from '@mui/material/Button';
 import Add from "@mui/icons-material/Add";
@@ -12,7 +12,7 @@ import { setNewPatientModal } from "../actions";
 
 function Home() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { loading, openNewPatientModal } = state;
+  const { openNewPatientModal } = state;
 
   const onClickHandler = () => {
     setNewPatientModal({ dispatch, payload: true });
@@ -26,10 +26,7 @@ function Home() {
           <Button className="button-add" variant="contained" onClick={onClickHandler}><Add /></Button>
         </div>
         {openNewPatientModal && <NewPatientModal />}
-        {loading === false &&
-          <Results />
-        }
-
+        <Results />
       </div>
     </PatientsContext.Provider>
   );

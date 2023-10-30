@@ -5,18 +5,20 @@ import TextField from '@mui/material/TextField';
 import './index.css';
 import SearchIcon from "@mui/icons-material/Search";
 
-import { PatientsContext } from "../../../reducer";
-import { setLoading, setPatientsData } from "../../../actions";
-import { PatientsService } from "../../../services";
+import { PatientsContext } from "../../reducer";
+import { setLoading, setPatientsData } from "../../actions";
+import { PatientsService } from "../../services";
 
 const Search = () => {
     const { dispatch } = useContext(PatientsContext);
 
     const onClickSearchButton = async () => {
+        setLoading({ dispatch, payload: true })
+
         const response = await PatientsService.getAllPatients();
+        
         setPatientsData({ dispatch, payload: response })
         setLoading({ dispatch, payload: false })
-        console.log('response in component', response);
     };
 
     const onKeyDownSearch = (e) => {
