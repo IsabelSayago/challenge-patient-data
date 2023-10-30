@@ -39,7 +39,7 @@ const NewPatientModal = () => {
     const handleClose = () => setNewPatientModal({ dispatch, payload: false });
 
     const saveChanges = async () => {
-        // const response = await PatientsService.addNewPatient({ someId, textFields })
+        // const response = await PatientsService.addNewPatient({ data: textFields })
         // setCreateActionState({ dispatch, payload: Math.floor(Math.random() * 2)})
         handleClose();
     };

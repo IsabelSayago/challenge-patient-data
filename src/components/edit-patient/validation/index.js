@@ -1,4 +1,4 @@
-export const isString = (value) => /^(|[\w\s]+)$/.test(value);
+export const isString = (value) => /^[A-Za-z\s']*$/.test(value);
 export const isAWebsite = (value) => /^(https?:\/\/)?(www\.)?[\w.-]+\.\w{2,4}(\/\S*)?$/.test(value);
       
 export const validateField = (textfield) => {
