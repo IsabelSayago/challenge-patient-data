@@ -9,7 +9,7 @@ For more details read: docs/documentation.md file.
 ## Technologies
 React
 
-##### API hosted in Heroku (https://band-app-back.herokuapp.com)
+##### API used (https://63bedcf7f5cfc0949b634fc8.mockapi.io/users)
 
 
 ## Main Functionalities
