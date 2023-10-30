@@ -1,0 +1,11 @@
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1000px;
+
+}
+
+.progress {
+    margin-left: 50%;
+}

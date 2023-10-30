@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from '../../assets/images/logo.svg';
+import { useReducer } from 'react';
 import './index.css';
+import Search from '../../components/search';
+import Results from '../../components/results';
+import { PatientsContext, initialState, reducer } from '../../reducer';
+import Button from '@mui/material/Button';
+import Add from "@mui/icons-material/Add";
 
-function App() {
+import NewPatientModal from '../../components/new-patient';
+import { setNewPatientModal } from "../../actions";
+
+function Home() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { openNewPatientModal } = state;
+
+  const onClickHandler = () => {
+    setNewPatientModal({ dispatch, payload: true });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PatientsContext.Provider value={{ state, dispatch }}>
+      <div className="home">
+        <div className="actions-container">
+          <Search />
+          <Button className="button-add" variant="contained" onClick={onClickHandler}><Add /></Button>
+        </div>
+
+        {openNewPatientModal && <NewPatientModal />}
+        
+        <Results />
+      </div>
+    </PatientsContext.Provider>
   );
 }
 
-export default App;
+export default Home;
