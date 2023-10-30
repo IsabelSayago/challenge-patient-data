@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Modal from '../modal';
 
 import { PatientsContext } from "../../reducer";
-import { setNewPatientModal } from "../../actions";
+import { setNewPatientModal, setSnackbarState } from "../../actions";
 import { fields } from './textfields'
 import { validateField } from './validation';
 
@@ -40,7 +40,9 @@ const NewPatientModal = () => {
 
     const saveChanges = async () => {
         // const response = await PatientsService.addNewPatient({ data: textFields })
-        // setCreateActionState({ dispatch, payload: Math.floor(Math.random() * 2)})
+        const randomState = Math.floor(Math.random() * 2);
+        const message = randomState ? 'Successfully created!' : 'Error while trying to create the patient';
+        setSnackbarState({ dispatch, payload: { state: randomState, message: message }});
         handleClose();
     };
 

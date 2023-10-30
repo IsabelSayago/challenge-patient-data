@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 import { PatientsContext } from "../../reducer";
-import { setModalData, setUpdateActionState } from "../../actions";
+import { setModalData, setSnackbarState } from "../../actions";
 
 const InfoCard = ({ data }) => {
   const { avatar, description, name, website } = data;
@@ -21,7 +21,7 @@ const InfoCard = ({ data }) => {
   const cardRef = useRef(null);
 
   const onClickCard = () => {
-    setUpdateActionState({ dispatch, payload: null })
+    setSnackbarState({ dispatch, payload: { state: null, message: '' } })
     setExpanded(value => !value);
 
     if (!expanded) {

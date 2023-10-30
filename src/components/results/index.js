@@ -13,7 +13,7 @@ import { PatientsContext } from "../../reducer";
 
 const Results = () => {
     const { state } = useContext(PatientsContext);
-    const { patientsData, modalData, updateState, loading } = state;
+    const { patientsData, modalData, snackbarState, loading } = state;
     const [open, setOpen] = useState(null);
 
     const onCloseHandler = () => {
@@ -21,10 +21,8 @@ const Results = () => {
     };
 
     useEffect(() => {
-        setOpen(updateState !== null ? true : false);
-    }, [updateState]);
-
-    const alertText = updateState ? 'Successfully updated!' : 'There was an error while trying to update the information';
+        setOpen(snackbarState.state !== null ? true : false);
+    }, [snackbarState]);
 
     console.log('loading', loading);
     return (
@@ -36,11 +34,11 @@ const Results = () => {
 
             <Snackbar open={open} autoHideDuration={6000} onClose={onCloseHandler}>
                 <Alert
-                    severity={updateState ? 'success' : 'error'}
+                    severity={snackbarState.state ? 'success' : 'error'}
                     sx={{ width: '100%' }}
                     onClose={onCloseHandler}
                 >
-                    {alertText}
+                    {snackbarState.message}
                 </Alert>
             </Snackbar>
         </div>

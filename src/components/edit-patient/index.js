@@ -6,7 +6,7 @@ import Create from '@mui/icons-material/Create'
 import Undo from "@mui/icons-material/Undo";
 
 import { PatientsContext } from "../../reducer";
-import { setModalData, setUpdateActionState } from "../../actions";
+import { setModalData, setSnackbarState } from "../../actions";
 import Modal from '../modal';
 import { validateField } from './validation';
 
@@ -43,7 +43,9 @@ const EditPatientModal = () => {
 
     const saveChanges = async () => {
         // const response = await PatientsService.updatePatientData({ id, textFields })
-        setUpdateActionState({ dispatch, payload: Math.floor(Math.random() * 2) })
+        const randomState = Math.floor(Math.random() * 2);
+        const message = randomState ? 'Successfully edited!' : 'Error while trying to edit the patient';
+        setSnackbarState({ dispatch, payload: { state: randomState, message: message }});
         handleClose();
     };
 
